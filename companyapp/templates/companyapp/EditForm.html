@@ -1,0 +1,25 @@
+{% extends "companyapp/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div style="display: block;width:100%;">
+    <a href="{% url 'companyapp:index' %}" type="button" class="btn btn-primary" style="float: left;">Back</a>
+    <a   type="button" class="btn btn-primary" style="float: right;">Next</a>
+    </div><br>
+    <div style="margin-top:30px">
+<form method="POST" action="" >
+    <div class="form-control  col-lg-12">
+      {% csrf_token %}
+    {{ companylist|crispy }}
+        </div>
+            <div style="margin-top:10px">
+
+                <button type="submit" class="btn btn-primary">Save</button></div>
+
+</form>
+    </div>
+{#<br>#}
+{#    <button type="submit" class="btn btn-primary">Add new Address</button>#}
+{#    </div>#}
+{% endblock %}
